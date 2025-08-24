@@ -1,0 +1,425 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  margin: 140px 170px;
+  margin-bottom: 50px;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* === About Title (Restored Old Style with Hover Gradient + Zoom) === */
+.about-title h1 {
+  font-size: 80px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  margin: 0;
+  transition: background 0.4s ease, color 0.4s ease, transform 0.3s ease;
+}
+
+.about-title h1:hover {
+  background: linear-gradient(to right, #5ce1e6, #38b6ff, #5271ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* === Layout === */
+.about-sections {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
+
+/* === Profile Image Advanced Style (Rectangle) === */
+.about-left {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-left img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 20px;
+  margin-top: 25px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6),
+              0 0 25px rgba(92, 225, 230, 0.4),
+              0 0 40px rgba(82, 113, 255, 0.3);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.about-left img:hover {
+  transform: scale(1.05) rotate(1.5deg);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.7),
+              0 0 40px rgba(92, 225, 230, 0.7),
+              0 0 70px rgba(82, 113, 255, 0.6);
+}
+
+.about-left::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #5ce1e6, #38b6ff, #5271ff, #5ce1e6);
+  background-size: 300% 300%;
+  z-index: 1;
+  filter: blur(25px);
+  opacity: 0.7;
+  animation: gradientFlow 6s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === Right Column === */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.about-para {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: left;
+  color: white;
+  line-height: 1.6;
+}
+
+/* === Skills Section === */
+.about-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.about-skill {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.4s ease;
+}
+
+.skill-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+}
+
+.skill-icon {
+  font-size: 28px;
+  background: linear-gradient(to right, #5ce1e6, #38b6ff, #5271ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-bar hr {
+  height: 100%;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #5ce1e6, #38b6ff, #5271ff);
+  transition: width 0.6s ease;
+}
+
+.about-skill:hover {
+  transform: translateX(8px);
+}
+
+.about-skill:hover .skill-icon {
+  transform: scale(1.2) rotate(8deg);
+  background: linear-gradient(to right, #5271ff, #38b6ff, #5ce1e6);
+}
+
+/* Toggle Button */
+.about-toggle-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center !important;
+  margin: 20px 0;
+  padding: 0 !important;
+}
+
+.about-toggle {
+  font-size: 20px;
+  padding: 14px 32px;
+  background: linear-gradient(to right, #5ce1e6, #38b6ff, #5271ff);
+  color: white;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.about-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* === More Details Wrapper === */
+.about-details-aligned {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 170px;
+  box-sizing: border-box;
+}
+
+/* Balanced Grid Layout with more spacing */
+.about-details-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  column-gap: 100px;   /* horizontal spacing */
+  row-gap: 80px;      /* vertical spacing */
+  margin-top: 60px;
+}
+
+/* === Glass Card Modern Style === */
+.about-detail-section {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  padding: 45px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  box-shadow: 0 14px 32px rgba(0,0,0,0.4);
+  margin-bottom: 30px; /* small extra buffer */
+}
+
+.about-detail-section:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(92, 225, 230, 0.6);
+  box-shadow: 0 18px 40px rgba(92, 225, 230, 0.35),
+              0 0 30px rgba(82, 113, 255, 0.25);
+}
+
+/* === Title inside card === */
+.about-detail-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 24px;
+}
+
+/* Gradient circular icon (larger size) */
+.about-detail-section h2 svg {
+  font-size: 60px;   /* was 48px → make bigger */
+  padding: 20px;     /* was 18px → a little more space */
+  border-radius: 50%;
+  background: linear-gradient(to right, #5ce1e6, #38b6ff, #5271ff);
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+
+/* === List items inside === */
+.about-detail-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-detail-section li {
+  font-size: 18px;
+  color: #eaeaea;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 28px;
+}
+
+.about-detail-section li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  font-size: 22px;
+  background: linear-gradient(to right, #5ce1e6, #38b6ff, #5271ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-detail-section li strong {
+  color: #5ce1e6;
+}
+
+/* Achievements */
+.about-achievements {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.about-achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: 0.5s;
+}
+
+.about-achievement h1 {
+  font-size: 60px;
+  font-weight: 700;
+  background: linear-gradient(to right, #5ce1e6, #38b6ff, #5271ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-achievement p {
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+}
+
+.about-achievement:hover {
+  transform: scale(1.12);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .about {
+    margin: 60px 15px;   /* was 100px 20px → less margin on mobile */
+    gap: 30px;           /* was 50px → tighter spacing */
+  }
+
+  .about-title h1 {
+    font-size: 38px;     /* was 42px → slightly smaller */
+    text-align: center;
+  }
+
+  .about-sections {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;           /* was 40px → smaller vertical gap */
+    width: 100%;
+  }
+
+  .about-left img {
+    max-width: 220px;    /* was 250px → scales better on small screens */
+  }
+
+  .about-right {
+    width: 100%;
+    gap: 25px;           /* was 40px → tighter */
+  }
+
+  .about-para {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+  .skill-label {
+    font-size: 18px;
+  }
+
+  .skill-icon {
+    font-size: 22px;
+  }
+
+  .about-toggle-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;    /* was 20px */
+    padding-left: 0;
+  }
+
+  .about-toggle {
+    width: 90%;
+    text-align: center;
+  }
+
+  .about-details-aligned {
+    padding: 0 15px;
+  }
+
+  .about-details-columns {
+    column-gap: 20px;    /* was 40px */
+    row-gap: 15px;       /* was 60px → much smaller vertical gap */
+  }
+
+  .about-detail-section {
+    min-height: auto;
+    padding: 20px;
+    margin-bottom: 0;       /* was 28px → less padding inside */
+  }
+  .about-detail-section + .about-detail-section {
+  margin-top: 15px; /* controlled uniform spacing */
+}
+
+  .about-detail-section h2 {
+    font-size: 20px;     /* was 22px */
+  }
+
+  .about-detail-section h2 svg {
+    font-size: 40px;     /* was 36px → slightly bigger icon */
+    padding: 12px;
+  }
+
+  .about-detail-section li {
+    font-size: 15px;     /* was 16px */
+  }
+
+  .about-achievements {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;           /* was 30px */
+  }
+
+  .about-achievement h1 {
+    font-size: 36px;     /* was 40px */
+  }
+
+  .about-achievement p {
+    font-size: 16px;     /* was 18px */
+    text-align: center;
+  }
+}

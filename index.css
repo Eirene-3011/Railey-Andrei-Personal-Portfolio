@@ -1,0 +1,113 @@
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Body Styling with Moving Light === */
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0a0a0a 0%, #000 100%);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* === Moving Light Overlay === */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(92,225,230,0.12) 0%, transparent 60%),
+              radial-gradient(circle, rgba(82,113,255,0.12) 0%, transparent 70%);
+  animation: moveLight 12s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* === Light Animation === */
+@keyframes moveLight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(20%, 20%) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+/* === Custom Scrollbar === */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #5ce1e6, #38b6ff, #5271ff);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #5271ff, #38b6ff, #5ce1e6);
+}
+
+/* === Headings === */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+/* === Links === */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: #5ce1e6;
+  text-shadow: 0 0 8px #38b6ff, 0 0 12px #5271ff;
+}
+
+/* === Containers (Optional Global Utility) === */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === Selection Highlight === */
+::selection {
+  background: linear-gradient(to right, #5ce1e6, #38b6ff);
+  color: #000;
+}
+
+/* === Smooth Fade-in Animation === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
