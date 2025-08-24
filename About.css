@@ -198,8 +198,8 @@
 .about-details-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  column-gap: 100px;   /* horizontal spacing */
-  row-gap: 80px;      /* vertical spacing */
+  column-gap: 100px;
+  row-gap: 80px;
   margin-top: 60px;
 }
 
@@ -217,7 +217,7 @@
   justify-content: flex-start;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   box-shadow: 0 14px 32px rgba(0,0,0,0.4);
-  margin-bottom: 30px; /* small extra buffer */
+  margin-bottom: 30px;
 }
 
 .about-detail-section:hover {
@@ -238,17 +238,16 @@
   margin-bottom: 24px;
 }
 
-/* Gradient circular icon (larger size) */
+/* Gradient circular icon */
 .about-detail-section h2 svg {
-  font-size: 60px;   /* was 48px → make bigger */
-  padding: 20px;     /* was 18px → a little more space */
+  font-size: 60px;
+  padding: 20px;
   border-radius: 50%;
   background: linear-gradient(to right, #5ce1e6, #38b6ff, #5271ff);
   color: white;
   flex-shrink: 0;
   box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
-
 
 /* === List items inside === */
 .about-detail-section ul {
@@ -323,36 +322,56 @@
 }
 
 /* === Responsive === */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .about {
-    margin: 60px 15px;   /* was 100px 20px → less margin on mobile */
-    gap: 30px;           /* was 50px → tighter spacing */
+    margin: 100px 40px;
+    gap: 50px;
   }
 
   .about-title h1 {
-    font-size: 38px;     /* was 42px → slightly smaller */
+    font-size: 56px;
+  }
+
+  .about-left img {
+    max-width: 300px;
+  }
+
+  .about-para {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    margin: 60px 15px;
+    gap: 30px;
+  }
+
+  .about-title h1 {
+    font-size: 38px;
     text-align: center;
   }
 
   .about-sections {
     flex-direction: column;
     align-items: center;
-    gap: 25px;           /* was 40px → smaller vertical gap */
+    gap: 25px;
     width: 100%;
   }
 
   .about-left img {
-    max-width: 220px;    /* was 250px → scales better on small screens */
+    max-width: 220px;
   }
 
   .about-right {
     width: 100%;
-    gap: 25px;           /* was 40px → tighter */
+    gap: 25px;
   }
 
   .about-para {
     font-size: 18px;
     padding: 0 10px;
+    text-align: center;
   }
 
   .skill-label {
@@ -364,12 +383,7 @@
   }
 
   .about-toggle-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;    /* was 20px */
-    padding-left: 0;
+    margin-top: 15px;
   }
 
   .about-toggle {
@@ -382,44 +396,81 @@
   }
 
   .about-details-columns {
-    column-gap: 20px;    /* was 40px */
-    row-gap: 15px;       /* was 60px → much smaller vertical gap */
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    column-gap: 0;
   }
 
   .about-detail-section {
-    min-height: auto;
     padding: 20px;
-    margin-bottom: 0;       /* was 28px → less padding inside */
+    min-height: auto;
   }
-  .about-detail-section + .about-detail-section {
-  margin-top: 15px; /* controlled uniform spacing */
-}
 
   .about-detail-section h2 {
-    font-size: 20px;     /* was 22px */
+    font-size: 20px;
   }
 
   .about-detail-section h2 svg {
-    font-size: 40px;     /* was 36px → slightly bigger icon */
-    padding: 12px;
+    font-size: 36px;
+    padding: 10px;
   }
 
   .about-detail-section li {
-    font-size: 15px;     /* was 16px */
+    font-size: 15px;
   }
 
   .about-achievements {
     flex-direction: column;
     align-items: center;
-    gap: 20px;           /* was 30px */
+    gap: 20px;
   }
 
   .about-achievement h1 {
-    font-size: 36px;     /* was 40px */
+    font-size: 36px;
   }
 
   .about-achievement p {
-    font-size: 16px;     /* was 18px */
+    font-size: 16px;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title h1 {
+    font-size: 28px;
+  }
+
+  .about-left img {
+    max-width: 180px;
+  }
+
+  .about-para {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .about-toggle {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .about-detail-section {
+    padding: 15px;
+  }
+
+  .about-detail-section h2 {
+    font-size: 18px;
+  }
+
+  .about-detail-section li {
+    font-size: 14px;
+  }
+
+  .about-achievement h1 {
+    font-size: 28px;
+  }
+
+  .about-achievement p {
+    font-size: 14px;
   }
 }
